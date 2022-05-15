@@ -1,7 +1,8 @@
 let container = document.querySelector("#container");
 
 
-function callSquareGrid (amount) {
+
+function createSquareGrid (amount) {
     for (let i = 0; i < amount; i++) {
         let newDiv = document.createElement("div");
         container.appendChild(newDiv);
@@ -9,9 +10,16 @@ function callSquareGrid (amount) {
         newDiv.style.minWidth ="25px";
         newDiv.style.minHeight="25px";
         newDiv.style.border = "1px solid black"; // for reference
-        newDiv.addEventListener("mouseover", () => newDiv.style.backgroundColor = "red");
+        newDiv.addEventListener("mouseover", () => newDiv.style.backgroundColor = "black");
     }
 }
 
+function callNewGridBtn() {
+    let createGridBtn = document.createElement("button");
+    createGridBtn.classList.add("newGridBtn")
+    createGridBtn.innerText = "Create new grid";
+    document.body.insertBefore(createGridBtn, container);
+}
 
-callSquareGrid(16 * 16);
+callNewGridBtn();
+createSquareGrid(16 * 16);
