@@ -10,5 +10,4 @@ function createSquareGrid (amount) {
     }
 }
 
-container.style.border = "2px solid red";
 createSquareGrid(16 * 16);
