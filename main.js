@@ -3,12 +3,13 @@ function createSquareGrid (amount) {
     for (let i = 0; i < amount; i++) {
         let newDiv = document.createElement("div");
         container.appendChild(newDiv);
-        newDiv.classList.add("square");
-        newDiv.style.minWidth ="25px";
-        newDiv.style.minHeight="25px";
-        newDiv.style.border = "1px solid black"; // for reference
+        newDiv.classList.add("squareClass");
+        newDiv.id = "squareid";
+        newDiv.style.minWidth = "25px";
+        newDiv.style.minHeight= "25px";
+        newDiv.style.border = "1px solid black";
         newDiv.addEventListener("mouseover", () => newDiv.style.backgroundColor = "black");
-    }
+        }
 }
 
 function removeElementsByClass(className){
@@ -19,12 +20,13 @@ function removeElementsByClass(className){
 }
 
 function createNewGrid () {
-    removeElementsByClass("square");
-    let userInput = window.prompt("Enter your new grid space (min 0, max is 100 making 100x100. Rounds down to the nearest number.");
+    removeElementsByClass("squareClass");
+    let userInput = window.prompt("Enter your new grid space (min 0, max is 100 making 100x100. Rounds down to the nearest number. Don't forget to zoom out if the canvas isn't big enough");
     let roundedInput = Math.floor(userInput);
 
     if (roundedInput <= 100 && roundedInput >= 1) {
-        createSquareGrid(roundedInput);
+        createSquareGrid(roundedInput * roundedInput);
+        container.style.gridTemplateColumns = `repeat(${roundedInput}, 1fr`;
     } else {
         return alert("Error! Invalid input!");
     }
@@ -37,6 +39,8 @@ function callNewGridBtn() {
     document.body.insertBefore(createGridBtn, container);
     createGridBtn.addEventListener("click", createNewGrid)
 }
+
+
 
 callNewGridBtn();
 createSquareGrid(16 * 16);

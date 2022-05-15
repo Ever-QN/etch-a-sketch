@@ -1,15 +1,23 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
+    align-items: center;
     gap: 10px;
+    background-color: grey;
 }
 
 #container {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
-    max-width: 960px;
-    max-height: 960px;
+    max-width: 100x;
+    max-height: 100px;
+}
+
+#squareid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .newGridBtn {
