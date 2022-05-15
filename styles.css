@@ -11,13 +11,16 @@ body {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     max-width: 100x;
-    max-height: 100px;
+    max-height: 3000px;
+    border-color: black;
+    border-style: double;
 }
 
 #squareid {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .newGridBtn {

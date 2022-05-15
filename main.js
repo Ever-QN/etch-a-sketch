@@ -1,4 +1,13 @@
 let container = document.querySelector("#container");
+
+function randomColor() {
+    let color = [];
+    for (let i = 0; i < 3; i++) {
+        color.push(Math.floor(Math.random() * 256));
+    }
+    return "rgb(" + color.join(", ") + ")";
+}
+
 function createSquareGrid (amount) {
     for (let i = 0; i < amount; i++) {
         let newDiv = document.createElement("div");
@@ -7,9 +16,10 @@ function createSquareGrid (amount) {
         newDiv.id = "squareid";
         newDiv.style.minWidth = "25px";
         newDiv.style.minHeight= "25px";
-        newDiv.style.border = "1px solid black";
-        newDiv.addEventListener("mouseover", () => newDiv.style.backgroundColor = "black");
-        }
+        // newDiv.style.border = "1px solid black";
+        newDiv.addEventListener("mouseover", () =>
+            newDiv.style.backgroundColor = randomColor());
+    }
 }
 
 function removeElementsByClass(className){
