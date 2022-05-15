@@ -1,7 +1,4 @@
 let container = document.querySelector("#container");
-
-
-
 function createSquareGrid (amount) {
     for (let i = 0; i < amount; i++) {
         let newDiv = document.createElement("div");
@@ -14,13 +11,22 @@ function createSquareGrid (amount) {
     }
 }
 
-function createNewGrid () {
-    let userInput = window.prompt("Enter your new grid space (max is 100, making 100x100, min 1)");
-    
-    if (userInput <= Math.floor(100) && userInput >= Math.floor(1)) {
+function removeElementsByClass(className){
+    const elements = document.getElementsByClassName(className);
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+}
 
+function createNewGrid () {
+    removeElementsByClass("square");
+    let userInput = window.prompt("Enter your new grid space (min 0, max is 100 making 100x100. Rounds down to the nearest number.");
+    let roundedInput = Math.floor(userInput);
+
+    if (roundedInput <= 100 && roundedInput >= 1) {
+        createSquareGrid(roundedInput);
     } else {
-        return "Error! Invalid input!";
+        return alert("Error! Invalid input!");
     }
 }
 
