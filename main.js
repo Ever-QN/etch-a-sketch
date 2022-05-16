@@ -50,7 +50,5 @@ function callNewGridBtn() {
     createGridBtn.addEventListener("click", createNewGrid)
 }
 
-
-
 callNewGridBtn();
 createSquareGrid(16 * 16);

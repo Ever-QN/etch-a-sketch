@@ -23,6 +23,12 @@ body {
     
 }
 
+#title {
+    font-weight: bold;
+    font-size: large;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
 .newGridBtn {
     display: flex;
     max-width: 100px;
