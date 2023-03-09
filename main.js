@@ -20,19 +20,21 @@ function createSquareGrid(amount) {
         newDiv.style.backgroundColor = "#fff";
 
         newDiv.addEventListener("mousedown", () => {
-            if (event.shiftKey) {
-                newDiv.style.backgroundColor = randomColor();
-            } else {
-                newDiv.style.backgroundColor = colorInput.value;
-            }
-
-            
+            selectSquareColor(newDiv);
             document.addEventListener("mousemove", colorSquare);
         });
 
         newDiv.addEventListener("mouseup", () => {
             document.removeEventListener("mousemove", colorSquare);
         });
+    }
+}
+
+function selectSquareColor(square) {
+    if (event.shiftKey) {
+        square.style.backgroundColor = randomColor();
+    } else {
+        square.style.backgroundColor = colorInput.value;
     }
 }
 
@@ -43,15 +45,14 @@ function isMouseWithinGridBounds(e) {
 }
 
 function colorSquare(e) {
-        if (!isMouseWithinGridBounds(e)) {
-            document.removeEventListener("mousemove", colorSquare);
-            return;
-        }
-        
-        let square = e.target;
-        square.style.backgroundColor = colorInput.value;
-}
+    if (!isMouseWithinGridBounds(e)) {
+        document.removeEventListener("mousemove", colorSquare);
+        return;
+    }
 
+    let square = e.target;
+    selectSquareColor(square);
+}
 
 function removeElementsByClass(className){
     const elements = document.getElementsByClassName(className);
