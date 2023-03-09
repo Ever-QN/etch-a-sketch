@@ -10,3 +10,5 @@ Hold down the "Shift" key while dragging your mouse over the grid to color the s
 
 **Creating a new grid** <br>
 To create a new grid, click the "Create new grid" button. A prompt will appear where you can enter the number of squares you want in each row and column of the new grid. The minimum value is 1 and the maximum value is 100 (for a total of 10,000 squares). The canvas will automatically adjust to fit the new grid size.
+
+Link for preview: https://ever-qn.github.io/etch-a-sketch/
