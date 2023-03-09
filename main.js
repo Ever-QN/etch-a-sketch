@@ -1,4 +1,5 @@
 let container = document.querySelector("#container");
+let colorInput = document.querySelector("#color-input");
 
 function randomColor() {
     let color = [];
