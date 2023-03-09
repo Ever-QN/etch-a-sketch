@@ -9,21 +9,30 @@ function randomColor() {
     return "rgb(" + color.join(", ") + ")";
 }
 
-function createSquareGrid (amount) {
+function createSquareGrid(amount) {
     for (let i = 0; i < amount; i++) {
-        let newDiv = document.createElement("div");
-        container.appendChild(newDiv);
-        newDiv.classList.add("squareClass");
-        newDiv.id = "squareid";
-        newDiv.style.minWidth = "25px";
-        newDiv.style.minHeight= "25px";
-        newDiv.style.backgroundColor = "#fff"; // set default background color to white
-        // newDiv.style.border = "1px solid black";
-        newDiv.addEventListener("click", () =>
-            newDiv.style.backgroundColor = colorInput.value); // set the background color of the clicked square to the selected color
+    let newDiv = document.createElement("div");
+    container.appendChild(newDiv);
+    newDiv.classList.add("squareClass");
+    newDiv.id = "squareid";
+    newDiv.style.minWidth = "25px";
+    newDiv.style.minHeight= "25px";
+    newDiv.style.backgroundColor = "#fff";
+    newDiv.addEventListener("mousedown", () => {
+        newDiv.style.backgroundColor = colorInput.value;
+        document.addEventListener("mousemove", colorSquare);
+    });
+    newDiv.addEventListener("mouseup", () => {
+        document.removeEventListener("mousemove", colorSquare);
+    });
     }
 }
 
+function colorSquare(e) {
+    if (e.buttons !== 1) return; // exit function if left mouse button is not held down
+    let square = e.target;
+    square.style.backgroundColor = colorInput.value;
+}
 
 function removeElementsByClass(className){
     const elements = document.getElementsByClassName(className);
