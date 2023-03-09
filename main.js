@@ -17,11 +17,13 @@ function createSquareGrid (amount) {
         newDiv.id = "squareid";
         newDiv.style.minWidth = "25px";
         newDiv.style.minHeight= "25px";
+        newDiv.style.backgroundColor = "#fff"; // set default background color to white
         // newDiv.style.border = "1px solid black";
-        newDiv.addEventListener("mouseover", () =>
-            newDiv.style.backgroundColor = randomColor());
+        newDiv.addEventListener("click", () =>
+            newDiv.style.backgroundColor = colorInput.value); // set the background color of the clicked square to the selected color
     }
 }
+
 
 function removeElementsByClass(className){
     const elements = document.getElementsByClassName(className);
