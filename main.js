@@ -20,24 +20,28 @@ function createSquareGrid(amount) {
         newDiv.style.backgroundColor = "#fff";
 
         newDiv.addEventListener("mousedown", () => {
-            newDiv.style.backgroundColor = colorInput.value;
+            if (event.shiftKey) {
+                newDiv.style.backgroundColor = randomColor();
+            } else {
+                newDiv.style.backgroundColor = colorInput.value;
+            }
 
-            // Add event listener to the entire document
+            
             document.addEventListener("mousemove", colorSquare);
         });
 
         newDiv.addEventListener("mouseup", () => {
             document.removeEventListener("mousemove", colorSquare);
         });
+    }
 }
 
-    // Function to check if mouse is within grid bounds
+
 function isMouseWithinGridBounds(e) {
         const gridBounds = container.getBoundingClientRect();
         return e.clientX >= gridBounds.left && e.clientX <= gridBounds.right && e.clientY >= gridBounds.top && e.clientY <= gridBounds.bottom;
 }
 
-    // Function to color the square when the mouse is moved within the grid bounds
 function colorSquare(e) {
         if (!isMouseWithinGridBounds(e)) {
             document.removeEventListener("mousemove", colorSquare);
@@ -46,7 +50,6 @@ function colorSquare(e) {
         
         let square = e.target;
         square.style.backgroundColor = colorInput.value;
-    }
 }
 
 
